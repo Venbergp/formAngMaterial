@@ -55,6 +55,23 @@
       </mat-form-field>
     </div>
 
+    <div class="row">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Место работы</mat-label>
+        <input type="text"
+               placeholder="Pick one"
+               aria-label="Number"
+               matInput
+               formControlName="workPlace"
+               [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+
     <div class="row" style="padding-top: 15px">
       <button mat-raised-button color="primary" type="submit" [disabled]="!profileForm.valid"> Отправить </button>
     </div>

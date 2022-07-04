@@ -15,27 +15,29 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatButtonModule} from "@angular/material/button";
 import {MatRadioModule} from "@angular/material/radio";
 import {NgxMaskModule} from "ngx-mask";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
 @NgModule({
   declarations: [
     AppComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatSelectModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatDatepickerModule,
-    MatIconModule,
-    MatSliderModule,
-    MatNativeDateModule,
-    ReactiveFormsModule,
-    MatButtonToggleModule,
-    MatButtonModule,
-    MatRadioModule,
-    NgxMaskModule.forRoot()
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        MatSelectModule,
+        MatInputModule,
+        MatFormFieldModule,
+        MatDatepickerModule,
+        MatIconModule,
+        MatSliderModule,
+        MatNativeDateModule,
+        ReactiveFormsModule,
+        MatButtonToggleModule,
+        MatButtonModule,
+        MatRadioModule,
+        NgxMaskModule.forRoot(),
+        MatAutocompleteModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
