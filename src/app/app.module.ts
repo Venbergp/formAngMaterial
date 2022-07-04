@@ -11,6 +11,9 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatSliderModule} from "@angular/material/slider";
 import {MatNativeDateModule} from "@angular/material/core";
 import {ReactiveFormsModule} from "@angular/forms";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatButtonModule} from "@angular/material/button";
+import {MatRadioModule} from "@angular/material/radio";
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import {ReactiveFormsModule} from "@angular/forms";
     MatIconModule,
     MatSliderModule,
     MatNativeDateModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatButtonToggleModule,
+    MatButtonModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

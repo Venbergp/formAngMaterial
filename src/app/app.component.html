@@ -1,13 +1,53 @@
 
-<h2> Form</h2>
-<p> description </p>
-<mat-slider min="1" max="100" step="1" value="50"></mat-slider>
+<div class="container" style="padding-top: 50px">
+  <h1> Форма ввода личной информации</h1>
+  <form [formGroup]="profileForm">
+
+    <div class="row">
+      <mat-form-field appearance="fill">
+        <mat-label>Имя</mat-label>
+        <input matInput formControlName="firstName">
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="fill">
+        <mat-label> Отчество </mat-label>
+        <input matInput formControlName="secondName">
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="fill">
+        <mat-label>Фамилия</mat-label>
+        <input matInput formControlName="lastName">
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="fill">
+        <mat-label>Дата рождения</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="birthDay">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+    </div>
+
+    <div class="row" style="padding-top: 15px">
+      <mat-radio-group aria-label="Select an option" formControlName="sex">
+        <mat-radio-button value="boy" style="margin-right: 10px"> Мальчик </mat-radio-button>
+        <mat-radio-button value="girl"> Девочка </mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <div class="row" style="padding-top: 15px">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!profileForm.valid"> Отправить </button>
+    </div>
+  </form>
 
 
-<mat-form-field appearance="fill">
-  <mat-label>Choose a date</mat-label>
-  <input matInput [matDatepicker]="picker">
-  <mat-hint>MM/DD/YYYY</mat-hint>
-  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
-</mat-form-field>
+
+
+</div>

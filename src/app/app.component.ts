@@ -11,7 +11,8 @@ export class AppComponent {
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
     secondName: [''],
-
+    birthDay: ['', Validators.required],
+    sex: ['', Validators.required]
   })
 
   constructor(private fb: FormBuilder) { }
