@@ -12,7 +12,9 @@ export class AppComponent {
     lastName: ['', Validators.required],
     secondName: [''],
     birthDay: ['', Validators.required],
-    sex: ['', Validators.required]
+    sex: ['', Validators.required],
+    phoneNumber: ['', Validators.required],
+    email: ['']
   })
 
   constructor(private fb: FormBuilder) { }

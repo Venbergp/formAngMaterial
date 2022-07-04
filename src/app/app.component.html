@@ -32,7 +32,6 @@
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
-
     </div>
 
     <div class="row" style="padding-top: 15px">
@@ -40,6 +39,20 @@
         <mat-radio-button value="boy" style="margin-right: 10px"> Мальчик </mat-radio-button>
         <mat-radio-button value="girl"> Девочка </mat-radio-button>
       </mat-radio-group>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="fill" style="padding-top: 15px">
+        <mat-label>Номер телефона</mat-label>
+        <input matInput mask="+0 (000) 000-00-00" formControlName="phoneNumber">
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="fill">
+        <mat-label>Адрес электронной почты</mat-label>
+        <input matInput [specialCharacters]="[ '[' ,']' , '\\' ]" mask="\[a-zA-Z\]" formControlName="email">
+      </mat-form-field>
     </div>
 
     <div class="row" style="padding-top: 15px">
