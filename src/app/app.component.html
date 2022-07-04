@@ -51,7 +51,7 @@
     <div class="row">
       <mat-form-field appearance="fill">
         <mat-label>Адрес электронной почты</mat-label>
-        <input matInput [specialCharacters]="[ '[' ,']' , '\\' ]" mask="\[a-zA-Z\]" formControlName="email">
+        <input matInput formControlName="email">
       </mat-form-field>
     </div>
 
@@ -72,12 +72,86 @@
       </mat-form-field>
     </div>
 
+    <mat-card style="margin-top: 30px" *ngIf="profileForm.touched">
+      <mat-card-title> Предварительный просмотр</mat-card-title>
+      <div *ngIf="profileForm.controls.firstName.value">
+        <mat-card-subtitle style="margin-top: 30px"> Имя </mat-card-subtitle>
+        <mat-card-content> {{profileForm.controls.firstName.value }}</mat-card-content>
+      </div>
+
+      <div *ngIf="profileForm.controls.lastName.value">
+        <mat-card-subtitle> Фамилия </mat-card-subtitle>
+        <mat-card-content> {{profileForm.controls.lastName.value }}</mat-card-content>
+      </div>
+
+      <div *ngIf="profileForm.controls.secondName.value">
+        <mat-card-subtitle> Отчество </mat-card-subtitle>
+        <mat-card-content> {{profileForm.controls.secondName.value }}</mat-card-content>
+      </div>
+
+      <div *ngIf="profileForm.controls.birthDay.value">
+        <mat-card-subtitle> Дата рождения </mat-card-subtitle>
+        <mat-card-content> {{profileForm.controls.birthDay.value }}</mat-card-content>
+      </div>
+
+      <div *ngIf="profileForm.controls.sex.value">
+        <mat-card-subtitle> Пол </mat-card-subtitle>
+        <mat-card-content> {{profileForm.controls.sex.value }}</mat-card-content>
+      </div>
+
+      <div *ngIf="profileForm.controls.phoneNumber.value">
+        <mat-card-subtitle> Телефон </mat-card-subtitle>
+        <mat-card-content> {{profileForm.controls.phoneNumber.value }}</mat-card-content>
+      </div>
+
+      <div *ngIf="profileForm.controls.email.value">
+        <mat-card-subtitle> Адрес электронной почты </mat-card-subtitle>
+        <mat-card-content> {{profileForm.controls.email.value }}</mat-card-content>
+      </div>
+
+      <div *ngIf="profileForm.controls.workPlace.value">
+        <mat-card-subtitle> Место работы </mat-card-subtitle>
+        <mat-card-content> {{profileForm.controls.workPlace.value }}</mat-card-content>
+      </div>
+    </mat-card>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Дополнительное подтверждение</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Отправить форму ?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Нет</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="logForm()">Да</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="row" style="padding-top: 15px">
-      <button mat-raised-button color="primary" type="submit" [disabled]="!profileForm.valid"> Отправить </button>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="!profileForm.valid"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal">
+          Отправить
+      </button>
     </div>
   </form>
 
 
+
+  <br>
+  <br>
 
 
 </div>

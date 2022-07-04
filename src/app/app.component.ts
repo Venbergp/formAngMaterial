@@ -7,11 +7,11 @@ import {map, Observable, startWith} from "rxjs";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
 
-  workPlaceOptions : string[] = ['1infinnity', '2infinnity', '3infinnity']
+  workPlaceOptions: string[] = ['1infinnity', '2infinnity', '3infinnity']
   // @ts-ignore
-  filteredOptions : Observable<string[]>
+  filteredOptions: Observable<string[]>
 
   profileForm = this.fb.group({
     firstName: ['', Validators.required],
@@ -34,11 +34,15 @@ export class AppComponent implements OnInit{
     this.filteredOptions = this.profileForm.controls.workPlace.valueChanges.pipe(
       startWith(''),
       map(value => {
-        console.log(1 + ' ' + value)
         return this._filter(value || '')
       }),
     );
   }
+
+  logForm(): void {
+    console.log(this.profileForm)
+  }
+
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
