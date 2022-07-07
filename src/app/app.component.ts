@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
     birthDay: ['', Validators.required],
     sex: ['', Validators.required],
     phoneNumber: ['', Validators.required],
-    email: [''],
+    email: ['', Validators.email],
     workPlace: ['']
   })
 
