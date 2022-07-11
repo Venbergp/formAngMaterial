@@ -7,6 +7,7 @@
       <mat-form-field appearance="fill">
         <mat-label>Имя</mat-label>
         <input matInput formControlName="firstName">
+        <mat-error *ngIf="profileForm.controls['firstName'].touched == true || formSendStatus">Введите свое имя</mat-error>
       </mat-form-field>
     </div>
 
@@ -21,14 +22,20 @@
       <mat-form-field appearance="fill">
         <mat-label>Фамилия</mat-label>
         <input matInput formControlName="lastName">
+        <mat-error *ngIf="profileForm.controls['lastName'].touched == true || formSendStatus"> Введите свою фамилию</mat-error>
       </mat-form-field>
     </div>
 
     <div class="row">
       <mat-form-field appearance="fill">
         <mat-label>Дата рождения</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="birthDay">
+        <input
+          matInput
+          [matDatepicker]="picker"
+          formControlName="birthDay"
+          >
         <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-error *ngIf="profileForm.controls['birthDay'].touched == true || formSendStatus"> Введена неправильная дата рождения, корректный формат ввода: DD/MM/YYYY</mat-error>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
@@ -45,17 +52,19 @@
       <mat-form-field appearance="fill" style="padding-top: 15px">
         <mat-label>Номер телефона</mat-label>
         <input matInput mask="+0 (000) 000-00-00" formControlName="phoneNumber">
+        <mat-error *ngIf="profileForm.controls['phoneNumber'].touched == true || formSendStatus"> Введите номер телефона</mat-error>
       </mat-form-field>
     </div>
 
     <div class="row">
       <mat-form-field appearance="fill">
         <mat-label>Адрес электронной почты</mat-label>
+        <mat-error> Введен некорректный адрес электронной почты</mat-error>
         <input matInput formControlName="email">
       </mat-form-field>
     </div>
 
-    <div class="row">
+    <div class="row" style="margin-top: 10px">
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Место работы</mat-label>
         <input type="text"
@@ -117,7 +126,13 @@
 
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+      *ngIf="profileForm.valid">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -137,12 +152,13 @@
 
     <div class="row" style="padding-top: 15px">
       <button
+        id="sendButton"
         mat-raised-button
         color="primary"
         type="submit"
-        [disabled]="!profileForm.valid"
         data-bs-toggle="modal"
-        data-bs-target="#exampleModal">
+        data-bs-target="#exampleModal"
+        (click)="sendForm()">
           Отправить
       </button>
     </div>
